@@ -70,7 +70,7 @@ body {
 
 /* Home Content */
 .home {
-  height: 100vh;
+  min-height: 100vh; /* Ensure content takes at least the full viewport height */
   display: flex;
   align-items: center;
   padding: 0 10%;
@@ -195,5 +195,20 @@ body {
 @keyframes showRight {
   100% {
     width: 0;
+  }
+}
+
+/* Media Queries for Larger Screens */
+@media only screen and (min-width: 768px) {
+  .home-content h1 {
+    font-size: 40px;
+  }
+
+  .home-content h3 {
+    font-size: 28px;
+  }
+
+  .home-content p {
+    font-size: 16px;
   }
 }
