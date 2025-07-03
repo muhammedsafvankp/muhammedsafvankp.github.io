@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // --- Theme Toggle Logic (Existing Code) ---
     const themeToggleBtn = document.getElementById('theme-toggle');
     const body = document.body;
 
@@ -32,11 +33,13 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             setTheme('light');
         }
-        
-         // NEW: Get current year for copyright
+    });
+
+    // --- NEW: Current Year for Copyright (Paste this block) ---
     const currentYearSpan = document.getElementById('current-year');
     if (currentYearSpan) {
         currentYearSpan.textContent = new Date().getFullYear();
     }
-    });
-});
+    // --- End of NEW Code ---
+
+}); // Closes the DOMContentLoaded listener
