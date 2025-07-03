@@ -32,5 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             setTheme('light');
         }
+        
+         // NEW: Get current year for copyright
+    const currentYearSpan = document.getElementById('current-year');
+    if (currentYearSpan) {
+        currentYearSpan.textContent = new Date().getFullYear();
+    }
     });
 });
