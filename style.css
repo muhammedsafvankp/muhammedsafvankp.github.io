@@ -80,6 +80,7 @@ body {
     display: flex;
     align-items: center;
     padding: 0 10%; /* Specific padding for home page hero */
+    justify-content: space-between; /* Pushes content and image to opposite sides */
 }
 
 .home-content,
@@ -87,7 +88,8 @@ body {
 .experience-content,
 .contact-content { /* Add .portfolio-content */
     max-width: 600px;
-    /* Common styles for content blocks could go here */
+    flex-basis: 50%; /* Give content equal initial space */
+    position: relative; /* Needed for text animations to work correctly */
 }
 
 /* Headings in Home Section */
@@ -208,28 +210,79 @@ body {
     width: 100%;
 }
 
+/* Image Section Styles (NEW) */
+.home-img {
+    position: relative;
+    width: 450px; /* Adjust as needed for your image size */
+    height: 450px; /* Adjust as needed for your image size */
+    border-radius: 50%; /* If you want a circular container, but depends on image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #00abf0, #800080); /* Example gradient border/background */
+    box-shadow: 0 0 20px #00abf0,
+                0 0 60px #00abf0; /* Glowing effect around image */
+    overflow: hidden; /* Crucial for the reveal animation */
+    flex-shrink: 0; /* Prevents image from shrinking when space is tight */
+    margin-left: 50px; /* Space between text and image */
+}
+
+/* Optional: Add a subtle animation to the home-img background or border */
+.home-img::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #081b29; /* Background color to cover the image initially */
+    animation: revealImage 1s ease forwards; /* Animation name, duration, timing, fill mode */
+    animation-delay: 2s; /* Adjust delay to appear after text */
+    z-index: 2; /* Ensures it covers the image */
+}
+
+.home-img img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image covers the div without distortion */
+    border-radius: 50%; /* If your image is circular or you want it to appear so */
+    z-index: 1; /* Ensures image is behind the reveal overlay */
+    animation: fadeInImage 1s ease forwards; /* Add fade-in animation for image itself */
+    animation-delay: 2.5s; /* Slightly delayed from the reveal */
+}
+
+
 /* Social Media Icons (Common for all pages) */
 .home-sci,
 .about-sci,
 .experience-sci,
 .contact-sci { /* Add .portfolio-sci */
-    position: absolute; /* This might need adjustment for other pages */
-    bottom: 40px;
-    width: 178px;
     display: flex;
+    /* These properties are now specifically handled for home-sci vs. other_sci */
+}
+
+/* Override .home-sci for home page specifically */
+.home-sci {
+    position: absolute;
+    bottom: 40px;
+    left: 10%; /* Align with content */
+    width: 178px;
     justify-content: space-between;
 }
 
-/* Override .home-sci for other pages if they don't need absolute positioning */
+
+/* Override for about, experience, contact pages to fix social icon spacing */
 .about-sci,
 .experience-sci,
 .contact-sci {
-    position: static; /* Or relative, depending on layout. Static pushes it into normal flow. */
-    margin-top: 40px; /* Add some space if not absolutely positioned */
-    bottom: unset; /* Remove bottom positioning */
-    width: auto; /* Let content dictate width */
+    position: static; /* CHANGES: This makes the div flow with content */
+    margin-top: 40px; /* Adds space above the icons */
+    bottom: unset; /* Removes the bottom positioning */
+    width: auto; /* IMPORTANT: Let content dictate width, not fixed 178px */
+    justify-content: flex-start; /* Aligns them to the start (left) */
+    gap: 15px; /* Adds a consistent gap between icons */
 }
-
 
 .home-sci a,
 .about-sci a,
@@ -250,7 +303,7 @@ body {
     z-index: 1;
     overflow: hidden;
     transition: .5s;
-    margin: 0 5px; /* Add some spacing between icons */
+    /* margin: 0 5px; -- Removed as 'gap' is used on the parent now for non-home pages */
 }
 
 .home-sci a:hover,
@@ -292,6 +345,29 @@ body {
         width: 0;
     }
 }
+
+/* KEYFRAMES ANIMATION for Image Reveal (NEW) */
+@keyframes revealImage {
+    0% {
+        transform: translateX(0); /* Starts fully covering */
+        width: 100%;
+    }
+    100% {
+        transform: translateX(100%); /* Slides completely to the right */
+        width: 0;
+    }
+}
+
+/* Optional: Keyframes for image fade in (NEW) */
+@keyframes fadeInImage {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 
 /* Specific Section Content Styles (You can add more as needed) */
 .about-content h1,
@@ -340,7 +416,92 @@ body {
     line-height: 1;
 }
 
+/* Contact Page Specific Styles */
+.contact-content .contact-info p {
+    font-size: 18px;
+    margin-bottom: 15px;
+    display: flex; /* For aligning icon with text */
+    align-items: center;
+}
+
+.contact-content .contact-info p i {
+    font-size: 22px;
+    color: #00abf0;
+    margin-right: 10px;
+}
+
+.contact-content .contact-info p a {
+    color: #ededed;
+    text-decoration: none;
+    transition: .3s ease;
+}
+
+.contact-content .contact-info p a:hover {
+    color: #00abf0;
+}
+
+
 /* Responsive Design (Example - adjust breakpoints as needed) */
+@media (max-width: 992px) { /* Adjust breakpoint if needed for image layout */
+    .home-section {
+        flex-direction: column; /* Stack content and image vertically */
+        padding-top: 100px; /* Add padding from header */
+        height: auto; /* Allow section to grow */
+        justify-content: flex-start; /* Align content to top */
+    }
+
+    .home-content {
+        max-width: 100%;
+        text-align: center;
+        margin-bottom: 40px; /* Space between text and image */
+    }
+
+    .home-img {
+        width: 300px; /* Smaller image on medium screens */
+        height: 300px;
+        margin-left: 0; /* Remove left margin when stacked */
+        margin-bottom: 40px; /* Space below image */
+        order: -1; /* Puts image above content on smaller screens */
+    }
+
+    .home-content h1,
+    .home-content h3,
+    .home-content p {
+        text-align: center; /* Center align text */
+    }
+
+    .home-content .btn-box {
+        justify-content: center; /* Center buttons */
+        margin: 0 auto 30px; /* Center btn-box horizontally */
+    }
+
+    /* Common social icon adjustment for smaller screens */
+    .home-sci,
+    .about-sci,
+    .experience-sci,
+    .contact-sci {
+        position: static; /* Flow with content */
+        width: 100%;
+        justify-content: center; /* Center social icons horizontally */
+        margin-top: 30px;
+    }
+
+    .home-sci a,
+    .about-sci a,
+    .experience-sci a,
+    .contact-sci a {
+        margin: 0 8px; /* More space between icons on smaller screens */
+    }
+
+    .experience-content .job-entry h3 {
+        font-size: 24px;
+    }
+
+    .contact-content .contact-info p {
+        justify-content: center; /* Center contact info on mobile */
+    }
+}
+
 @media (max-width: 768px) {
     .header {
         padding: 20px 5%;
@@ -356,47 +517,6 @@ body {
     .experience-section,
     .contact-section {
         padding: 80px 5% 40px; /* Adjust padding for smaller screens */
-    }
-
-    .home-content h1 {
-        font-size: 48px;
-    }
-
-    .home-content h3 {
-        font-size: 28px;
-    }
-
-    .home-content .btn-box {
-        flex-direction: column; /* Stack buttons vertically */
-        width: 100%;
-        height: auto; /* Auto height */
-    }
-
-    .btn-box a {
-        width: 100%; /* Full width buttons */
-        margin-bottom: 15px; /* Space between stacked buttons */
-        height: 45px; /* Slightly smaller height */
-    }
-
-    .home-sci,
-    .about-sci,
-    .experience-sci,
-    .contact-sci {
-        position: static; /* Ensure they flow with content on mobile */
-        width: 100%;
-        justify-content: center; /* Center social icons */
-        margin-top: 30px;
-    }
-
-    .home-sci a,
-    .about-sci a,
-    .experience-sci a,
-    .contact-sci a {
-        margin: 0 8px; /* More space between icons on smaller screens */
-    }
-
-    .experience-content .job-entry h3 {
-        font-size: 24px;
     }
 }
 
@@ -420,5 +540,10 @@ body {
 
     .logo {
         font-size: 20px;
+    }
+
+    .home-img {
+        width: 250px; /* Even smaller image on small screens */
+        height: 250px;
     }
 }
