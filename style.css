@@ -1,238 +1,424 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Basic Styles */
 * {
-margin: 0; 
-padding: 0; 
-box-sizing: border-box; 
-font-family: 'Poppins', sans-serif;
-}
-body {
-background: #081b29;
-color: #ededed;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
+body {
+    background: #081b29;
+    color: #ededed;
+    overflow-x: hidden; /* Prevent horizontal scroll from animations */
+}
+
+/* Header */
 .header {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-padding: 20px 10%;
-display: flex;
-background: transparent;
-justify-content: space-between;
-align-items: center;
-z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 10%;
+    display: flex;
+    background: transparent; /* or #081b29 if you want a solid header */
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
 }
 
 .logo {
-position: relative;
-font-size: 25px;
-color: #ededed;
-text-decoration: none;
-font-weight: 600;
+    position: relative;
+    font-size: 25px;
+    color: #ededed;
+    text-decoration: none;
+    font-weight: 600;
 }
 
 .logo::before {
-content: '';
-position: absolute;
-top: 0;
-right: 0;
-width: 100%;
-height: 100%;
-background: 081b29;
-animation: showRight 1s ease forwards;
-animation-delay: .4s;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #081b29; /* Corrected hex color */
+    animation: showRight 1s ease forwards;
+    animation-delay: .4s;
 }
 
 .navbar a {
-font-size: 18px;
-color: #ededed;
-text-decoration: none;
-font-weight: 500;
-margin-left: 35px;
-transition: .3s;
+    font-size: 18px;
+    color: #ededed;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 35px;
+    transition: .3s;
 }
 
 .navbar a:hover,
 .navbar a.active {
-color:#00abf0;
+    color: #00abf0;
 }
 
-.home {
-height: 100vh;
-display: flex;
-align-items: center;
-padding: 0 10%;
+/* Common Section Styling (for about, experience, contact) */
+/* This will ensure consistent padding and alignment across pages */
+.about-section,
+.experience-section,
+.contact-section { /* Add .portfolio-section when created */
+    min-height: 100vh; /* Ensures content takes full viewport height */
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center; /* Center content vertically */
+    padding: 100px 10% 40px; /* Top padding for fixed header, bottom padding for social icons */
 }
 
-.home-content {
-max-width: 600px;
+/* Home Section Specific Styles */
+.home-section { /* Changed from .home to .home-section for clarity */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%; /* Specific padding for home page hero */
 }
 
+.home-content,
+.about-content, /* Applying similar content block styling */
+.experience-content,
+.contact-content { /* Add .portfolio-content */
+    max-width: 600px;
+    /* Common styles for content blocks could go here */
+}
+
+/* Headings in Home Section */
 .home-content h1 {
-position: relative;
-font-size: 56px;
-font-weight: 700;
-line-height: 1.2;
+    position: relative;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.2;
 }
 
 .home-content h1::before {
-content: '';
-position: absolute;
-top: 0;
-right: 0;
-width: 100%;
-height: 100%;
-background: 081b29;
-animation: showRight 1s ease forwards;
-animation-delay: 1s;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #081b29; /* Corrected hex color */
+    animation: showRight 1s ease forwards;
+    animation-delay: 1s;
 }
 
 .home-content h3 {
-position: relative;
-font-size: 32px;
-font-weight: 700;
-color: #00abf0;
+    position: relative;
+    font-size: 32px;
+    font-weight: 700;
+    color: #00abf0;
 }
 
 .home-content h3::before {
-content: '';
-position: absolute;
-top: 0;
-right: 0;
-width: 100%;
-height: 100%;
-background: 081b29;
-animation: showRight 1s ease forwards;
-animation-delay: 1.3s;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #081b29; /* Corrected hex color */
+    animation: showRight 1s ease forwards;
+    animation-delay: 1.3s;
 }
 
 .home-content p {
-position: relative;
-font-size: 16px;
-margin:28px 0 40px;
+    position: relative;
+    font-size: 16px;
+    margin: 28px 0 40px;
 }
 
 .home-content p::before {
-content: '';
-position: absolute;
-top: 0;
-right: 0;
-width: 100%;
-height: 100%;
-background: 081b29;
-animation: showRight 1s ease forwards;
-animation-delay: 1.6s;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #081b29; /* Corrected hex color */
+    animation: showRight 1s ease forwards;
+    animation-delay: 1.6s;
 }
 
+/* Buttons */
 .home-content .btn-box {
-display: flex;
-justify-content: space-between;
-width: 345px
-height: 50px;
+    display: flex;
+    justify-content: space-between;
+    width: 345px; /* Corrected semicolon */
+    height: 50px;
 }
 
 .btn-box a {
-position: relative;
-display: inline-flex;
-justify-content: center;
-align-item: center;
-width: 150px;
-height: 100%;
-background: #00abf0;
-border:2px solid #00abf0;
-border-radius: 8px;
-font-size:19px;
-color: #091b29;
-text-decoration: none;
-font-weight: 600;
-letter-spacing: 1px;
-z-index: 1;
-overflow: hidden;
-transition: .5s;
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center; /* Corrected spelling */
+    width: 150px;
+    height: 100%; /* This means 50px as .btn-box has height 50px */
+    background: #00abf0;
+    border: 2px solid #00abf0;
+    border-radius: 8px;
+    font-size: 19px;
+    color: #081b29; /* Changed to #081b29 for consistency with background */
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
 }
 
 .btn-box a:hover {
-color: #00abf0;
+    color: #00abf0;
 }
 
 .btn-box a:nth-child(2) {
-background: transparent;
-color: #00abf0;
+    background: transparent;
+    color: #00abf0;
 }
 
 .btn-box a:nth-child(2):hover {
-color: #081b29;
+    color: #081b29;
 }
 
 .btn-box a:nth-child(2)::before {
-background: #00abf0;
+    background: #00abf0;
 }
 
 .btn-box a::before {
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-width: 0;
-height: 100%;
-background: #081b29;
-z-index: -1;
-transition: .5s;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #081b29;
+    z-index: -1;
+    transition: .5s;
 }
 
 .btn-box a:hover::before {
-width: 100%;
+    width: 100%;
 }
 
-.home-sci {
-position: absolute;
-bottom: 40px;
-width: 178px;
-display: flex;
-justify-content: space-between;
+/* Social Media Icons (Common for all pages) */
+.home-sci,
+.about-sci,
+.experience-sci,
+.contact-sci { /* Add .portfolio-sci */
+    position: absolute; /* This might need adjustment for other pages */
+    bottom: 40px;
+    width: 178px;
+    display: flex;
+    justify-content: space-between;
 }
 
-.home-sci a {
-position: relative;
-display: inline-flex;
-justify-content: center;
-align-items: center;
-width: 40px;
-height: 40px;
-background: transparent;
-border: 2px solid #00abf0;
-border-radius: 50%;
-font-size: 20px;
-color: #00abf0;
-text-decoration: none;
-z-index: 1;
-overflow: hidden;
-transition: .5s;
-}
-
-.home-sci a:hover {
-color: #081b29;
-}
-
-.home-sci a::before {
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-width; 0;
-height:100%;
-background: #00abf0;
-z-index: -1;
-}
-
-.home-sci a:hover::before {
-width: 100%;
+/* Override .home-sci for other pages if they don't need absolute positioning */
+.about-sci,
+.experience-sci,
+.contact-sci {
+    position: static; /* Or relative, depending on layout. Static pushes it into normal flow. */
+    margin-top: 40px; /* Add some space if not absolutely positioned */
+    bottom: unset; /* Remove bottom positioning */
+    width: auto; /* Let content dictate width */
 }
 
 
-*/KEYFRAMESANIMATION/*
+.home-sci a,
+.about-sci a,
+.experience-sci a,
+.contact-sci a { /* Apply common styles to all social icon links */
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid #00abf0;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #00abf0;
+    text-decoration: none;
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+    margin: 0 5px; /* Add some spacing between icons */
+}
+
+.home-sci a:hover,
+.about-sci a:hover,
+.experience-sci a:hover,
+.contact-sci a:hover {
+    color: #081b29;
+}
+
+.home-sci a::before,
+.about-sci a::before,
+.experience-sci a::before,
+.contact-sci a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0; /* Corrected colon */
+    height: 100%;
+    background: #00abf0;
+    z-index: -1;
+    transition: .5s;
+}
+
+.home-sci a:hover::before,
+.about-sci a:hover::before,
+.experience-sci a:hover::before,
+.contact-sci a:hover::before {
+    width: 100%;
+}
+
+
+/* KEYFRAMES ANIMATION */
 @keyframes showRight {
-100% {
-width:0;
+    0% { /* Added initial state */
+        width: 100%;
+    }
+    100% {
+        width: 0;
+    }
 }
+
+/* Specific Section Content Styles (You can add more as needed) */
+.about-content h1,
+.experience-content h1,
+.contact-content h1 { /* Add .portfolio-content h1 */
+    font-size: 48px; /* Slightly smaller for internal pages, adjust as desired */
+    margin-bottom: 20px;
+}
+
+.about-content p,
+.experience-content p,
+.contact-content p { /* Add .portfolio-content p */
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.experience-content .job-entry {
+    margin-bottom: 30px;
+}
+
+.experience-content .job-entry h3 {
+    color: #00abf0;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.experience-content .job-entry ul {
+    list-style: none; /* Remove default bullet points */
+    padding-left: 0; /* Remove default padding */
+}
+
+.experience-content .job-entry ul li {
+    position: relative;
+    padding-left: 20px; /* Space for custom bullet */
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.experience-content .job-entry ul li::before {
+    content: '\2022'; /* Unicode for a bullet point */
+    color: #00abf0; /* Color the bullet */
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 1;
+}
+
+/* Responsive Design (Example - adjust breakpoints as needed) */
+@media (max-width: 768px) {
+    .header {
+        padding: 20px 5%;
+    }
+
+    .navbar a {
+        margin-left: 20px;
+        font-size: 16px;
+    }
+
+    .home-section,
+    .about-section,
+    .experience-section,
+    .contact-section {
+        padding: 80px 5% 40px; /* Adjust padding for smaller screens */
+    }
+
+    .home-content h1 {
+        font-size: 48px;
+    }
+
+    .home-content h3 {
+        font-size: 28px;
+    }
+
+    .home-content .btn-box {
+        flex-direction: column; /* Stack buttons vertically */
+        width: 100%;
+        height: auto; /* Auto height */
+    }
+
+    .btn-box a {
+        width: 100%; /* Full width buttons */
+        margin-bottom: 15px; /* Space between stacked buttons */
+        height: 45px; /* Slightly smaller height */
+    }
+
+    .home-sci,
+    .about-sci,
+    .experience-sci,
+    .contact-sci {
+        position: static; /* Ensure they flow with content on mobile */
+        width: 100%;
+        justify-content: center; /* Center social icons */
+        margin-top: 30px;
+    }
+
+    .home-sci a,
+    .about-sci a,
+    .experience-sci a,
+    .contact-sci a {
+        margin: 0 8px; /* More space between icons on smaller screens */
+    }
+
+    .experience-content .job-entry h3 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-content h1 {
+        font-size: 38px;
+    }
+
+    .home-content h3 {
+        font-size: 24px;
+    }
+
+    .home-content p {
+        font-size: 14px;
+        margin: 15px 0 25px;
+    }
+
+    .navbar {
+        display: none; /* Hide navbar on very small screens, you might want a hamburger menu (requires JS) */
+    }
+
+    .logo {
+        font-size: 20px;
+    }
 }
