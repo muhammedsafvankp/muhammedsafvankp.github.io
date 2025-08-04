@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ബുക് ടോക് - 1 | തളിപ്പറമ്പ് സർ സയ്യിദ് കോളേജ്</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@400;700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans Malayalam', sans-serif;
+            background: linear-gradient(135deg, #1a5d1a 0%, #0d3b0d 100%);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .poster {
+            width: 800px;
+            max-width: 100%;
+            background: rgba(0, 20, 10, 0.85);
+            border: 3px solid #d4af37;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        
+        .header {
+            padding: 25px 40px 15px;
+            text-align: center;
+            background: rgba(0, 40, 20, 0.7);
+            border-bottom: 2px solid #d4af37;
+        }
+        
+        .logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .college-logo {
+            width: 80px;
+            height: 80px;
+            background: #fff;
+            border-radius: 50%;
+            padding: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+        }
+        
+        .college-logo img {
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+        }
+        
+        .org-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-top: 10px;
+        }
+        
+        .org-text b {
+            color: #d4af37;
+            font-weight: 700;
+        }
+        
+        .main-content {
+            display: flex;
+            padding: 30px 40px;
+            gap: 40px;
+        }
+        
+        .book-cover {
+            flex: 0 0 280px;
+            height: 380px;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            border: 2px solid #d4af37;
+            position: relative;
+        }
+        
+        .book-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .event-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .event-title {
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: #FFD700;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            letter-spacing: 1px;
+        }
+        
+        .book-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.4;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .book-author {
+            font-size: 1.5rem;
+            color: #FFD700;
+            text-align: center;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        
+        .highlight {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #d4af37;
+            text-align: center;
+            margin: 25px 0;
+            padding: 10px;
+            background: rgba(0, 30, 15, 0.7);
+            border-radius: 8px;
+        }
+        
+        .details {
+            background: rgba(0, 40, 20, 0.7);
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #d4af37;
+            margin-bottom: 30px;
+        }
+        
+        .detail-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .detail-icon {
+            width: 40px;
+            height: 40px;
+            background: #d4af37;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .detail-text b {
+            color: #FFD700;
+            font-weight: 700;
+        }
+        
+        .welcome {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #d4af37;
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 30, 15, 0.7);
+            border-top: 2px solid #d4af37;
+            margin-top: auto;
+        }
+        
+        .decoration {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .decoration::before {
+            content: "";
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
+            top: -50px;
+            left: -50px;
+            border-radius: 50%;
+        }
+        
+        .decoration::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(26, 93, 26, 0.3) 0%, transparent 70%);
+            bottom: -100px;
+            right: -100px;
+            border-radius: 50%;
+        }
+        
+        .book-pages {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            opacity: 0.3;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+                padding: 20px;
+            }
+            
+            .book-cover {
+                flex: none;
+                width: 250px;
+                height: 340px;
+                margin: 0 auto 30px;
+            }
+            
+            .event-title {
+                font-size: 2.5rem;
+            }
+            
+            .book-title {
+                font-size: 1.6rem;
+            }
+            
+            .book-author {
+                font-size: 1.3rem;
+            }
+            
+            .highlight {
+                font-size: 1.5rem;
+            }
+            
+            .detail-item {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="poster">
+        <div class="decoration"></div>
+        
+        <div class="header">
+            <div class="logos">
+                <div class="college-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Sir_Syed_College_Taliparamba_Logo.png/220px-Sir_Syed_College_Taliparamba_Logo.png" alt="College Logo">
+                </div>
+                <div class="college-logo">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2702/2702134.png" alt="Vyazhavatta Logo">
+                </div>
+            </div>
+            
+            <div class="org-text">
+                തളിപ്പറമ്പ് സർ സയ്യിദ് കോളേജ് സെൻട്രൽ ലൈബ്രറിയും ജേണലിസം വിഭാഗത്തിൻ്റെ സാഹിത്യ- സാംസ്കാരിക കൂട്ടായ്മയായ <b>വ്യാഴവട്ട</b>വും ചേർന്ന് അവതരിപ്പിക്കുന്നു
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="book-cover">
+                <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1575559228i/48890200.jpg" alt="Book Cover">
+                <div class="book-pages">
+                    <svg viewBox="0 0 24 24" fill="#d4af37">
+                        <path d="M18,2H6C4.9,2,4,2.9,4,4v16c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V4C20,2.9,19.1,2,18,2z M18,20H6V4h5v7l2.5-1.5L16,11V4h2V20z"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="event-details">
+                <h1 class="event-title">ബുക് ടോക് - 1</h1>
+                
+                <div class="book-title">"സിറ്റിക്കോത്തെ വാമൊഴികൾ"</div>
+                <div class="book-author">ഷംഷീർ പറമ്പത്ത് കണ്ടി</div>
+                
+                <div class="highlight">ഗ്രന്ഥകർത്താവുമായി മുഖാമുഖം</div>
+                
+                <div class="details">
+                    <div class="detail-item">
+                        <div class="detail-icon">📅</div>
+                        <div class="detail-text">തിയ്യതി : <b>ആഗസ്റ്റ് 5 | 2025</b></div>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-icon">🕒</div>
+                        <div class="detail-text">സമയം : <b>3:30 pm</b></div>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-icon">📍</div>
+                        <div class="detail-text">വേദി : <b>കോളേജ് സെൻട്രൽ ലൈബ്രറി</b></div>
+                    </div>
+                </div>
+                
+                <div class="welcome">ഏവർക്കും സ്വാഗതം!</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
