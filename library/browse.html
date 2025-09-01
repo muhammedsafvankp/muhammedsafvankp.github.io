@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse All Periodicals - Library Periodicals</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Library Periodicals</a>
+            <nav class="nav-links">
+                <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+                <ul>
+                    <li><a href="browse.html">Browse All Titles</a></li>
+                    <li><a href="search.html">Search Periodicals</a></li>
+                    <li><a href="access.html">How to Access</a></li>
+                    <li><a href="contact.html" class="btn btn-primary">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container content-page">
+        <h1>Browse All Periodicals</h1>
+
+        <div class="filter-sort-section">
+            <div class="filter-group">
+                <label for="category-filter">Category:</label>
+                <select id="category-filter">
+                    <option value="all">All Categories</option>
+                    <option value="news">News & Politics</option>
+                    <option value="science">Science & Technology</option>
+                    <option value="arts">Arts & Culture</option>
+                    <option value="hobbies">Hobbies & Interests</option>
+                    <option value="business">Business & Finance</option>
+                    <option value="scholarly">Scholarly Journals</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="sort-by">Sort By:</label>
+                <select id="sort-by">
+                    <option value="newest">Newest Arrivals</option>
+                    <option value="atoz">A-Z Title</option>
+                    <option value="ztoa">Z-A Title</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="periodicals-grid">
+            <!-- Periodical Item Template -->
+            <div class="periodical-item" data-category="news" data-title="The Economist">
+                <a href="periodical-detail.html?id=economist">
+                    <img src="images/magazine_cover_economist.jpg" alt="The Economist cover">
+                    <h3>The Economist</h3>
+                    <p class="latest-issue">Latest Issue: Dec 2, 2023</p>
+                    <span class="new-badge">NEW!</span>
+                </a>
+            </div>
+            <div class="periodical-item" data-category="science" data-title="Scientific American">
+                <a href="periodical-detail.html?id=scientific-american">
+                    <img src="images/magazine_cover_scientific_american.jpg" alt="Scientific American cover">
+                    <h3>Scientific American</h3>
+                    <p class="latest-issue">Latest Issue: Nov 2023</p>
+                    <span class="new-badge">NEW!</span>
+                </a>
+            </div>
+            <div class="periodical-item" data-category="arts" data-title="ArchiDigest">
+                <a href="periodical-detail.html?id=archidigest">
+                    <img src="images/magazine_cover_archidigest.jpg" alt="ArchiDigest cover">
+                    <h3>ArchiDigest</h3>
+                    <p class="latest-issue">Latest Issue: Q4 2023</p>
+                </a>
+            </div>
+            <div class="periodical-item" data-category="hobbies" data-title="Gardening Today">
+                <a href="periodical-detail.html?id=gardening-today">
+                    <img src="images/magazine_cover_gardening.jpg" alt="Gardening Today cover">
+                    <h3>Gardening Today</h3>
+                    <p class="latest-issue">Latest Issue: Nov/Dec 2023</p>
+                </a>
+            </div>
+            <div class="periodical-item" data-category="business" data-title="Forbes">
+                <a href="periodical-detail.html?id=forbes">
+                    <img src="images/magazine_cover_forbes.jpg" alt="Forbes cover">
+                    <h3>Forbes</h3>
+                    <p class="latest-issue">Latest Issue: Dec 2023</p>
+                </a>
+            </div>
+            <div class="periodical-item" data-category="news" data-title="TIME">
+                <a href="periodical-detail.html?id=time">
+                    <img src="images/magazine_cover_time.jpg" alt="TIME magazine cover">
+                    <h3>TIME</h3>
+                    <p class="latest-issue">Latest Issue: Dec 4, 2023</p>
+                </a>
+            </div>
+            <!-- Add more periodical items here -->
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 [Your Library Name]. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><img src="images/icon_facebook.png" alt="Facebook"></a>
+                <a href="#" aria-label="Twitter"><img src="images/icon_twitter.png" alt="Twitter"></a>
+                <a href="#" aria-label="Instagram"><img src="images/icon_instagram.png" alt="Instagram"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
