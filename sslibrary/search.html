@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Periodicals - Library</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">Library Logo</a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="browse.html">Browse All Titles</a></li>
+                    <li><a href="search.html">Search Periodicals</a></li>
+                    <li><a href="how-to-access.html">How to Access</a></li>
+                    <li><a href="contact.html" class="btn btn-primary">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-content container">
+        <h1>Search Periodicals</h1>
+        <div class="search-form-container">
+            <form class="search-form">
+                <div class="form-group">
+                    <label for="search-term">Search by Title or Keyword:</label>
+                    <input type="text" id="search-term" name="search-term" placeholder="e.g., Science, Business, Fashion">
+                </div>
+                <div class="form-group">
+                    <label for="search-category">Category (Optional):</label>
+                    <select id="search-category" name="search-category">
+                        <option value="">All Categories</option>
+                        <option value="news">News & Politics</option>
+                        <option value="science">Science & Technology</option>
+                        <!-- Add more categories -->
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+        </div>
+
+        <div class="search-results card-grid">
+            <!-- Search results will appear here -->
+            <p>Your search results will be displayed here.</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Library Logo</div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="copyright">
+                    &copy; 2023 [Your Library Name]. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <!-- Add specific search JavaScript here if needed -->
+</body>
+</html>
