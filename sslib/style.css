@@ -70,9 +70,23 @@ nav a.active, nav a:hover {
 }
 
 footer {
-  background: #004080;
-  color: white;
+  background: #00264d; /* darker navy for contrast */
+  color: #ddd;
   text-align: center;
   padding: 1rem;
   margin-top: 20px;
+  font-size: 0.95rem;
 }
+
+footer a {
+  color: #4da6ff;        /* soft blue for the link */
+  text-decoration: none; /* remove underline */
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #80ccff;        /* lighter blue on hover */
+  text-decoration: underline;
+}
+
