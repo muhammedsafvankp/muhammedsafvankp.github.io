@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse All Periodicals - Library</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">Library Logo</a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="browse.html">Browse All Titles</a></li>
+                    <li><a href="search.html">Search Periodicals</a></li>
+                    <li><a href="how-to-access.html">How to Access</a></li>
+                    <li><a href="contact.html" class="btn btn-primary">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-content container">
+        <h1>Browse All Periodicals</h1>
+
+        <div class="filter-options">
+            <!-- Add filter/sort options here -->
+            <label for="category">Filter by Category:</label>
+            <select id="category">
+                <option value="all">All Categories</option>
+                <option value="news">News & Politics</option>
+                <option value="science">Science & Technology</option>
+                <option value="arts">Arts & Culture</option>
+                <option value="fashion">Fashion & Lifestyle</option>
+                <option value="business">Business & Finance</option>
+                <option value="scholarly">Scholarly Journals</option>
+            </select>
+            <label for="sort">Sort By:</label>
+            <select id="sort">
+                <option value="newest">Newest Arrivals</option>
+                <option value="a-z">Title (A-Z)</option>
+            </select>
+        </div>
+
+        <div class="card-grid">
+            <!-- Example Periodical Card - Duplicate and fill with your data -->
+            <div class="card">
+                <span class="new-tag">NEW!</span>
+                <img src="images/the-economist.jpg" alt="The Economist cover">
+                <h3>The Economist</h3>
+                <p>In-depth analysis of current affairs, business, and finance.</p>
+                <a href="periodical-detail.html?title=the-economist" class="btn btn-link">View Details</a>
+            </div>
+            <div class="card">
+                <img src="images/vogue.jpg" alt="Vogue cover">
+                <h3>Vogue Magazine</h3>
+                <p>The latest in fashion, beauty, and culture.</p>
+                <a href="periodical-detail.html?title=vogue" class="btn btn-link">View Details</a>
+            </div>
+            <!-- More periodical cards here -->
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Library Logo</div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="copyright">
+                    &copy; 2023 [Your Library Name]. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
