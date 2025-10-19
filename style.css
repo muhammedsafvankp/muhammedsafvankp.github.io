@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display.swap');
 
 /* Basic Styles */
 * {
@@ -12,6 +12,17 @@ body {
     background: #081b29;
     color: #ededed;
     overflow-x: hidden; /* Prevent horizontal scroll from animations */
+}
+
+/* Footer Stick-to-Bottom Setup */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures body takes full viewport height */
+}
+
+main {
+    flex-grow: 1; /* Allows main content to take up available space */
 }
 
 /* Header */
@@ -47,6 +58,15 @@ body {
     animation: showRight 1s ease forwards;
     animation-delay: .4s;
 }
+
+/* NEW: Hamburger Menu Icon Style */
+#menu-icon {
+    font-size: 3.6rem; /* 36px */
+    color: #ededed;
+    cursor: pointer;
+    display: none; /* Hidden on desktop */
+}
+
 
 .navbar a {
     font-size: 18px;
@@ -502,14 +522,45 @@ body {
     }
 }
 
+/* =========================================== */
+/* === MOBILE MENU CHANGES ARE IN THIS BLOCK === */
+/* =========================================== */
 @media (max-width: 768px) {
     .header {
         padding: 20px 5%;
     }
 
+    /* NEW: Show hamburger icon */
+    #menu-icon {
+        display: block;
+    }
+
+    /* NEW: Style the navbar for mobile */
+    .navbar {
+        position: absolute;
+        top: 100%; /* Place it below the header */
+        left: 0;
+        width: 100%;
+        padding: 1rem 5%;
+        background: #081b29; /* Dark background */
+        border-top: 1px solid rgba(255, 255, 255, .2);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+        
+        /* Hide it by default */
+        display: none;
+    }
+
+    /* NEW: This class will be added by JavaScript to show the menu */
+    .navbar.active {
+        display: block;
+    }
+
+    /* NEW: Style mobile menu links */
     .navbar a {
-        margin-left: 20px;
-        font-size: 16px;
+        display: block; /* Stack links vertically */
+        font-size: 2rem; /* Make them easy to tap */
+        margin: 3rem 0; /* Space them out */
+        text-align: center;
     }
 
     .home-section,
@@ -519,6 +570,10 @@ body {
         padding: 80px 5% 40px; /* Adjust padding for smaller screens */
     }
 }
+/* =========================================== */
+/* === END OF MOBILE MENU CHANGES === */
+/* =========================================== */
+
 
 @media (max-width: 480px) {
     .home-content h1 {
@@ -534,9 +589,7 @@ body {
         margin: 15px 0 25px;
     }
 
-    .navbar {
-        display: none; /* Hide navbar on very small screens, you might want a hamburger menu (requires JS) */
-    }
+    /* REMOVED: .navbar { display: none; } as it's now handled by the 768px breakpoint */
 
     .logo {
         font-size: 20px;
@@ -585,6 +638,17 @@ body.light-mode .logo {
 
 body.light-mode .logo::before {
     background: #f0f2f5; /* Match body background */
+}
+
+/* NEW: Light mode for mobile icon */
+body.light-mode #menu-icon {
+    color: #333;
+}
+
+body.light-mode .navbar {
+    /* This rule now styles the mobile menu background in light mode */
+    background: #ffffff;
+    border-top: 1px solid rgba(0, 0, 0, .1);
 }
 
 body.light-mode .navbar a {
@@ -684,7 +748,7 @@ body.light-mode .contact-content .contact-info p a:hover {
         font-size: 18px;
         width: 35px;
         height: 35px;
-        margin-left: auto; /* Push button to right if navbar is hidden */
+        /* margin-left: auto; -- No longer needed, as menu-icon is present */
     }
 }
 /* Footer Styles */
@@ -703,15 +767,4 @@ body.light-mode .footer {
     background: #e0e0e0; /* Lighter background for light mode */
     color: #333;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
-}
-
-/* Ensure body is flex-column for footer to stick to bottom if content is short */
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Ensures body takes full viewport height */
-}
-
-main {
-    flex-grow: 1; /* Allows main content to take up available space */
 }
