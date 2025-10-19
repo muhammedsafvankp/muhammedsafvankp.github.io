@@ -43,3 +43,25 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- End of NEW Code ---
 
 }); // Closes the DOMContentLoaded listener
+/* =========================================== */
+/* === NEW: HAMBURGER MENU TOGGLE === */
+/* =========================================== */
+let menuIcon = document.querySelector('#menu-icon');
+let navbar = document.querySelector('.navbar');
+
+menuIcon.onclick = () => {
+    menuIcon.classList.toggle('bx-x'); // Changes the icon to an 'X'
+    navbar.classList.toggle('active'); // Shows/hides the mobile menu
+};
+
+/* =========================================== */
+/* === Optional: Close menu when a link is clicked === */
+/* =========================================== */
+let navLinks = document.querySelectorAll('.navbar a');
+
+navLinks.forEach(link => {
+    link.onclick = () => {
+        menuIcon.classList.remove('bx-x'); // Remove 'X'
+        navbar.classList.remove('active'); // Hide menu
+    };
+});
